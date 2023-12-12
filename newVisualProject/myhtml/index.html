@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/echarts.js"></script>
+    <script src="../js/libai_roadmap.js"></script>
+    <script src="../js/libai_location.js"></script>
+    <script src="https://www.isqqw.com/dep/echarts/map/js/china.js"></script>
+    <!-- 移动pathmove -->
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=2.0&ak=wRR4kd5uau9MeTUiHcehSgrl5nrn4HKO&s=1"></script>
+    <script type="text/javascript" src="../pathmove/bmap.js"></script>
+    <script type="text/javascript" src="../pathmove/province.js"></script>
+    <script type="text/javascript" src="../pathmove/lushu.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #left-sidebar,
+        #right-sidebar,
+        #main-content {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        #left-sidebar,
+        #right-sidebar {
+            width: 18%;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        #main-content {
+            flex: 1;
+            background-color: #e0e0e0;
+            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .component {
+            height: 30%;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+        }
+
+        #map-container {
+            top: 0%;
+            height: 60%;
+            /* Adjust the width of the map container */
+        }
+
+        /* 隐藏百度地图左下角logo */
+        body,
+        html,
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        .BMap_cpyCtrl {
+            display: none;
+        }
+
+        .anchorBL {
+            display: none;
+        }
+
+       
+    </style>
+    <title>李白可视化系统</title>
+</head>
+
+<body>
+    <div id="left-sidebar">
+        <div class="component" id="myChartstory">左侧组件1
+            <script src="component/left_com1.js"></script>
+        </div>
+        <div class="component" id="myChartfeel">左侧组件2
+            <script src="component/left_com2.js"></script>
+        </div>
+        <div class="component" >
+            
+            <img src="image/词云图1.png" alt="词云图1" width="250" height="261">
+        </div>
+    </div>
+
+    <!-- 中间 -->
+    <div id="main-content">
+        <div style="width: 100%;height: 57%;">
+            <div id="main_libaiMap" style="width: 50%;height: 100%;padding-left: 2%;display:inline-block;border:1px">
+                <script type="text/javascript" src="component/map_left.js">
+                    //  中间左边地图
+                </script>
+            </div>
+
+            <div id="baidu_map_canvas"
+                style="width: 35%;height: 100%;padding: right 2%;display:inline-block;border:1px; float:inline-end;">
+            </div>
+            <button id="run" style="position: absolute; right: 30%; top: 3%;">游历</button>
+            <button id="pause" style="position: absolute; right: 25%; top: 3%;">暂停</button>
+            <script type="text/javascript" src="component/map_right.js">
+                // 中间右边地图
+            </script>
+        </div>
+        <div style="width: 80%;height: 40%;" id="myChartaffect">
+            <script src="component/affect.js">// 中间下方时间关系图
+            </script>
+        </div>
+    </div>
+
+    <div id="right-sidebar">
+        <div class="component" id="youyi">右侧组件1
+            <script src="component/right_com1.js"></script>
+        </div>
+        <div class="component" id="myChartway">右侧组件2
+            <script src="component/right_com2.js"></script>
+        </div>
+        <div class="component" id="myChartcity">右侧组件3
+            <script src="component/right_com3.js"></script>
+        </div>
+    </div>
+
+</body>
+
+</html>
